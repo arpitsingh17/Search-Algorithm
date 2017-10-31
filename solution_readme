@@ -1,0 +1,87 @@
+Task:
+Function to search an Array of Sorted numbers for finding the element that best fits the search criteria.
+Criteria:  LessThan 
+    		LessThanEquals 
+    		Equals 
+   		GreaterThanEquals 
+    		GreaterThan 
+
+
+Function: -  
+SearchResult Search
+ (
+    const int * const items, //An array of sorted ints, with no duplicates
+    const int n_items, //Number of elements in the items array
+    const int ascending, //non-zero if the array is sorted in ascending order
+    const int key, //the key to search for
+    const SearchType type, //the type of match to find
+    int* const index  // index for storing the matched key index (default = -1)
+)
+
+Assumptions: -
+*  The items are sorted
+*  Items will be non-NULL
+*  There are no duplicate items
+*  n_items will be > 0
+*  for non-matching key index = -1
+
+
+
+
+
+
+Desired Output:
+Given the input array [0, 2, 4, 6, 8] (ascending order)
+*
+*  +-----+-------------------+--------------+-------+
+*  | Key | Type              | Returns      | Index |
+*  +-----+-------------------+--------------+-------+
+*  | -1  | LessThanEquals    | NotFound     | X     |
+*  +-----+-------------------+--------------+-------+
+*  |  0  | LessThan          | NotFound     | X     |
+*  +-----+-------------------+--------------+-------+
+*  |  0  | Equals            | FoundExact   | 0     |
+*  +-----+-------------------+--------------+-------+
+*  |  1  | Equals            | NotFound     | X     |
+*  +-----+-------------------+--------------+-------+
+*  |  2  | GreaterThanEquals | FoundExact   | 1     |
+*  +-----+-------------------+--------------+-------+
+*  |  2  | GreaterThan       | FoundGreater | 2     |
+*  +-----+-------------------+--------------+-------+
+*
+*  Given the input array [8, 6, 4, 2, 0] (descending order)
+*
+*  +-----+-------------------+--------------+-------+
+*  | Key | Type              | Returns      | Index |
+*  +-----+-------------------+--------------+-------+
+*  | -1  | LessThan          | NotFound     | X     |
+*  +-----+-------------------+--------------+-------+
+*  |  4  | LessThanEquals    | FoundExact   | 2     |
+*  +-----+-------------------+--------------+-------+
+*  |  8  | Equals            | FoundExact   | 0     |
+*  +-----+-------------------+--------------+-------+
+*  |  5  | GreaterThanEquals | FoundGreater | 1     |
+*  +-----+-------------------+--------------+-------+
+*  |  2  | GreaterThanEquals | FoundExact   | 3     |
+*  +-----+-------------------+--------------+-------+
+*  |  9  | GreaterThan       | NotFound     | X     |
+*  +-----+-------------------+--------------+-------+
+*
+Actual Output:
+
+
+
+
+Testing:
+Functional testing is done on the final code for all the corner cases using assert library as well as directly calling the function.
+Screenshot of the Final output is attached above.
+
+Non-Functional Testing:
+Unit Testing: Each individual method is separately tested to ensure the logic of that unit.
+System Integration Testing: The final code is tested twice, first by directly calling the methods and Second by using the assert library. 
+Testing for Input Validation: If the Assumptions are not considered in this solution, then the code can be tested for Input Validation.
+•	e.g. Array should be either sorted or reverse sorted.
+•	n_items should be equal to the length of array.
+•	No duplicates should be present in the array.
+•	All the elements should be non-null
+Performance Testing: Testing can be done to check the time required in case of very large array. For a 64 bit machine the maximum size of array can be 2^64 bytes. This can be done on different machines and the validity of code can be determined.
